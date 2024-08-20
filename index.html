@@ -1,12 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gestión de Mesas - La Parra</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>MESSI</h1>
-    <p>nashei</p>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Gestion de Mesas - La Parra</h1>
+        
+        <!-- Boton para cambiar el modo con icono -->
+        <button id="toggle-mode" class="btn btn-secondary">
+            <i id="icon-mode" class="fas fa-sun"></i>
+        </button>
+        
+        <!-- Boton para cambiar de piso -->
+        <button id="toggle-floor" class="btn btn-primary">
+            Cambiar Piso
+        </button>
+        
+        <div id="mesas-container" class="row">
+            <!-- Piso 1 y Piso 2 -->
+            <div id="piso1" class="col-sm-10 piso" style="display: none;">
+                <h2 class="mb-4">Piso 1</h2>
+                <div class="mesa-container">
+                    <!-- Mesas del Piso 1 -->
+                </div>
+            </div>
+
+            <div id="piso2" class="col-sm-9 col-md-10 piso" style="display: none;">
+                <h2>Piso 2</h2>
+                <div class="mesa-container">
+                    <!-- Mesas del Piso 2 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
