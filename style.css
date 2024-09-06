@@ -1,0 +1,114 @@
+
+#toggle-mode {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    border: none;
+    color: #e0e0e0;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#toggle-mode:hover {
+    background-color: #555;
+}
+
+/* Estilos generales para las mesas */
+.mesa-container {
+    position: relative;
+    width: 100%;
+    height: 800px; /* Ajusta la altura según el tamaño del contenedor */
+    border: 1px solid #ddd; /* Opcional: para ver los bordes del contenedor */
+    overflow: hidden; /* Para evitar el desbordamiento de las mesas */
+}
+
+.mesa {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    text-align: center;
+}
+
+.mesa-ocupada {
+    background-color: #bc0013;
+}
+
+.mesa-libre {
+    background-color: #087a23;
+}
+
+.mesa:hover {
+    opacity: 0.8;
+}
+
+/* Estilos para el modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .mesa-libre {
+    background-color: #1c9620;
+}
+
+body.dark-mode .mesa-ocupada {
+    background-color: #bf1b0f;
+}
+
+body.dark-mode .btn-secondary {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+body.dark-mode .btn-secondary:hover {
+    background-color: #555;
+}
+
+#icon-mode {
+    font-size: 20px;
+}
+
+/* Estilos para el menú contextual */
+.context-menu {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+}
+
+.context-menu .menu-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.context-menu .menu-item:last-child {
+    border-bottom: none;
+}
+
+.context-menu .menu-item:hover {
+    background-color: #f0f0f0;
+}
+
+#toggle-floor {
+    margin-bottom: 20px;
+}
+
+#mesas-container{
+    
+}
