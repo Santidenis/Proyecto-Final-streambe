@@ -128,4 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     crearMesas('piso1', posicionesPiso1, 10);
     crearMesas('piso2', posicionesPiso2, 12);
 
+    // Mostrar solo el primer piso al inicio
+    let currentFloor = 'piso1';
+    document.getElementById(currentFloor).style.display = 'block';
 })
