@@ -155,4 +155,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Función para agregar una nueva mesa
+    const agregarMesa = () => {
+        const container = document.querySelector(`#${currentFloor} .mesa-container`);
+        const mesasActuales = container.querySelectorAll('.mesa').length;
+        const posiciones = currentFloor === 'piso1' ? posicionesPiso1 : posicionesPiso2;
+
+        if (mesasActuales < numMesasMax) {
+            const pos = posiciones[mesasActuales];
+            const mesa = document.createElement('div');
+            mesa.className = 'mesa mesa-libre';
+            mesa.textContent = `Mesa ${mesasActuales + 1}`;
+            mesa.style.top = pos.top;
+            mesa.style.left = pos.left;
+            mesa.addEventListener('dblclick', () => {
+                mesa.classList.toggle('mesa-ocupada');
+                mesa.classList.toggle('mesa-libre');
+            });
+            mesa.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                mostrarMenuContextual(e, mesa);
+            });
+            hacerArrastrable(mesa);
+            container.appendChild(mesa);
+        } else {
+            alert('No hay más espacio disponible para nuevas mesas en este piso.');
+        }
+    };
+
+
 })
