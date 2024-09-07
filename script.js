@@ -124,5 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
         elemento.addEventListener('mousedown', iniciarArrastre);
     };
 
+    // Inicializar con mesas predeterminadas
+    crearMesas('piso1', posicionesPiso1, 10);
+    crearMesas('piso2', posicionesPiso2, 12);
 
 })
