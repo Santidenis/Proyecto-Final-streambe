@@ -183,5 +183,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Botón para agregar mesa
+    const agregarMesaButton = document.createElement('button');
+    agregarMesaButton.textContent = 'Agregar Mesa';
+    agregarMesaButton.className = 'btn btn-success';
+    agregarMesaButton.style.position = 'fixed';
+    agregarMesaButton.style.bottom = '30px';
+    agregarMesaButton.style.right = '30px';
+    agregarMesaButton.addEventListener('click', agregarMesa);
+    document.body.appendChild(agregarMesaButton);
 
 })
