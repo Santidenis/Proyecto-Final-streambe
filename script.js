@@ -140,4 +140,19 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById(currentFloor).style.display = 'block';
     });
 
+    // Funcionalidad para alternar entre modo oscuro y claro
+    const toggleButton = document.getElementById('toggle-mode');
+    const iconMode = document.getElementById('icon-mode');
+
+    toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            iconMode.classList.remove('fa-sun');
+            iconMode.classList.add('fa-moon');
+        } else {
+            iconMode.classList.remove('fa-moon');
+            iconMode.classList.add('fa-sun');
+        }
+    });
+
 })
