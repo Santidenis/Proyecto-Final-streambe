@@ -45,4 +45,51 @@ document.addEventListener('DOMContentLoaded', () => {
             container.appendChild(mesa);
         }
     };
+
+    // Función para mostrar el menú contextual
+    const mostrarMenuContextual = (e, mesa) => {
+        const menu = document.createElement('div');
+        menu.className = 'menu-contextual';
+        menu.style.position = 'absolute';
+        menu.style.top = `${e.clientY}px`;
+        menu.style.left = `${e.clientX}px`;
+        menu.style.backgroundColor = '#fff';
+        menu.style.border = '1px solid #ccc';
+        menu.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+        menu.style.padding = '5px';
+        menu.style.zIndex = '1000';
+        menu.style.borderRadius = '10px'
+
+        const eliminarOption = document.createElement('button');
+        eliminarOption.textContent = 'Eliminar Mesa';
+        eliminarOption.className = 'btn btn-danger btn-sm m-1';
+        eliminarOption.addEventListener('click', () => {
+            if (confirm(`¿Eliminar ${mesa.textContent}?`)) {
+                mesa.parentNode.removeChild(mesa);
+            }
+            document.body.removeChild(menu);
+        });
+
+        const editarOption = document.createElement('button');
+        editarOption.textContent = 'Editar Mesa';
+        editarOption.className = 'btn btn-primary btn-sm m-1';
+        editarOption.addEventListener('click', () => {
+            const nuevoNombre = prompt('Introduce el nuevo nombre de la mesa:', mesa.textContent);
+            if (nuevoNombre !== null && nuevoNombre.trim() !== '') {
+                mesa.textContent = nuevoNombre;
+            }
+            document.body.removeChild(menu);
+        });
+
+        menu.appendChild(eliminarOption);
+        menu.appendChild(editarOption);
+
+        document.body.appendChild(menu);
+        document.addEventListener('click', () => {
+            if (document.body.contains(menu)) {
+                document.body.removeChild(menu);
+            }
+        }, { once: true });
+    };
+
 })
