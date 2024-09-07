@@ -131,4 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mostrar solo el primer piso al inicio
     let currentFloor = 'piso1';
     document.getElementById(currentFloor).style.display = 'block';
+
+    // Funcionalidad para alternar entre pisos
+    const toggleFloorButton = document.getElementById('toggle-floor');
+    toggleFloorButton.addEventListener('click', () => {
+        document.getElementById(currentFloor).style.display = 'none';
+        currentFloor = currentFloor === 'piso1' ? 'piso2' : 'piso1';
+        document.getElementById(currentFloor).style.display = 'block';
+    });
+
 })
