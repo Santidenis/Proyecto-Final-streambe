@@ -92,4 +92,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { once: true });
     };
 
+    // Función para hacer que las mesas sean arrastrables
+    const hacerArrastrable = (elemento) => {
+        let desplazamientoX = 0, desplazamientoY = 0, mouseX = 0, mouseY = 0;
+
+        const iniciarArrastre = (e) => {
+            e.preventDefault();
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            document.addEventListener('mousemove', arrastrar);
+            document.addEventListener('mouseup', detenerArrastre);
+        };
+
+        const arrastrar = (e) => {
+            e.preventDefault();
+            desplazamientoX = mouseX - e.clientX;
+            desplazamientoY = mouseY - e.clientY;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            elemento.style.top = `${elemento.offsetTop - desplazamientoY}px`;
+            elemento.style.left = `${elemento.offsetLeft - desplazamientoX}px`;
+        };
+
+        const detenerArrastre = () => {
+            document.removeEventListener('mousemove', arrastrar);
+            document.removeEventListener('mouseup', detenerArrastre);
+        };
+
+        elemento.addEventListener('mousedown', iniciarArrastre);
+    };
+
+
 })
