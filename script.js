@@ -21,4 +21,28 @@ document.addEventListener('DOMContentLoaded', () => {
         { top: '180px', left: '515px' }, { top: '180px', left: '680px' }, { top: '340px', left: '515px' },
         { top: '340px', left: '680px' }, { top: '500px', left: '515px' }
     ];
+
+    // Función para crear mesas en el contenedor
+    const crearMesas = (pisoId, posiciones, numMesas) => {
+        const container = document.querySelector(`#${pisoId} .mesa-container`);
+        container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevas mesas
+        for (let i = 0; i < numMesas; i++) {
+            const pos = posiciones[i];
+            const mesa = document.createElement('div');
+            mesa.className = 'mesa mesa-libre';
+            mesa.textContent = `Mesa ${i + 1}`;
+            mesa.style.top = pos.top;
+            mesa.style.left = pos.left;
+            mesa.addEventListener('dblclick', () => {
+                mesa.classList.toggle('mesa-ocupada');
+                mesa.classList.toggle('mesa-libre');
+            });
+            mesa.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                mostrarMenuContextual(e, mesa);
+            });
+            hacerArrastrable(mesa);
+            container.appendChild(mesa);
+        }
+    };
 })
