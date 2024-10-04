@@ -188,8 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
     agregarMesaButton.textContent = 'Agregar Mesa';
     agregarMesaButton.className = 'btn btn-success';
     agregarMesaButton.style.position = 'fixed';
-    agregarMesaButton.style.bottom = '30px';
-    agregarMesaButton.style.right = '30px';
+    agregarMesaButton.style.top = '130px';
+    agregarMesaButton.style.right = '60px';
     agregarMesaButton.addEventListener('click', agregarMesa);
     document.body.appendChild(agregarMesaButton);
 
